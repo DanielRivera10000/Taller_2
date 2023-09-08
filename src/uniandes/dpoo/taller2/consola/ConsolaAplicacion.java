@@ -13,7 +13,7 @@ public class ConsolaAplicacion
 
 
 {
-	private CalculadoraRestaurante restaunrante = new CalculadoraRestaurante();
+	private CalculadoraRestaurante restaurante = new CalculadoraRestaurante();
 	
 	
 	
@@ -50,7 +50,25 @@ public class ConsolaAplicacion
 				{
 				String nombreCliente = input("Ingrese el nombre del cliente\n");
 				String direccionCliente = input("Ingrese su direccion\n");
-				restaunrante.iniciarPedido(nombreCliente, direccionCliente);
+				restaurante.iniciarPedido(nombreCliente, direccionCliente);
+				pedido = true;
+				System.out.println("Pedido Iniciado");
+				}
+				
+				else if (opcion_seleccionada == 3 && pedido == true)
+				{
+					String identificador = input("Ingrese el codigo del producto Menu o el codigo producto Combo: \n");
+					
+					if (identificador.contains("C"))
+					{
+						restaurante
+					}
+				
+				
+				
+				
+				
+				
 				}
 				
 				
@@ -76,9 +94,6 @@ public class ConsolaAplicacion
 			
 		
 	
-		
-	
-		
 		
 	public void mostrarMenu()
 	{

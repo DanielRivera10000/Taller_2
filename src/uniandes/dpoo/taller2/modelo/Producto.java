@@ -2,7 +2,6 @@ package uniandes.dpoo.taller2.modelo;
 
 public class Producto 
 
-
 {
 	
 	public int getPrecio()
@@ -13,7 +12,7 @@ public class Producto
 	
 	public String getNombre()
 	{
-		return null;
+		return null ;
 		
 	}
 	

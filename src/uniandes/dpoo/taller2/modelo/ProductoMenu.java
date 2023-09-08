@@ -1,6 +1,6 @@
 package uniandes.dpoo.taller2.modelo;
 
-public class ProductoMenu 
+public class ProductoMenu extends Producto
 {
 
 	private String nombre;
@@ -18,7 +18,7 @@ public class ProductoMenu
 	
 	public String getNombre() 
 	{
-		return null;
+		return nombre;
 		
 	}
 	
@@ -26,7 +26,7 @@ public class ProductoMenu
 	
 	public int getPrecio()
 	{
-		return (Integer) null;
+		return precioBase;
 		
 	}
 	

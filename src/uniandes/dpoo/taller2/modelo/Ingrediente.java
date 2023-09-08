@@ -12,7 +12,7 @@ public class Ingrediente
 	public Ingrediente (String nombre, int costoAdicional)
 	{
 		this.nombre = nombre;
-		this.nombre = String.valueOf(costoAdicional);
+		this.costoAdicional = String.valueOf(costoAdicional);
 	}
 	
 	public String getNombre ()

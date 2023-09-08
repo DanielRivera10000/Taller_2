@@ -1,6 +1,6 @@
 package uniandes.dpoo.taller2.modelo;
 
-public class Combo 
+public class Combo extends Producto
 
 {
 	
@@ -11,7 +11,8 @@ public class Combo
 	
 	public Combo (String nombre, double descuento)
 	{
-		
+		this.nombreCombo = nombre;
+		this.descuento = descuento;
 	}
 	
 	
@@ -24,7 +25,7 @@ public class Combo
 	
 	public String getNombre()
 	{
-		return null;
+		return nombreCombo;
 		
 	}
 	
@@ -32,7 +33,7 @@ public class Combo
 	
 	public int getPrecio()
 	{
-		return 0;
+		return (int) descuento;
 		
 	}
 	

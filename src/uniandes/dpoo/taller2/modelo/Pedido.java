@@ -27,11 +27,21 @@ public class Pedido
 		
 	}
 	
+	
+	
+	public int getIdPedido()
+	{
+		return identificadorPedido;
+	}
+	
+	
+	
 	public void agregarProducto (Producto nuevoItem) 
 	
 	{
 		itemsPedido.add(nuevoItem);
 	}
+	
 	
 	
 	
@@ -46,7 +56,8 @@ public class Pedido
 	
 	private int getPrecioTotalPedido() 
 	{
-		return 0;
+		int precioTotal = this.getPrecioNetoPedido() + this.getPrecioIVAPedido();
+		return precioTotal;
 	}
 
 	

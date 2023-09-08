@@ -1,6 +1,6 @@
 package uniandes.dpoo.taller2.modelo;
 
-public class ProductoAjustado 
+public class ProductoAjustado extends Producto
 {
 
 	public ProductoAjustado (ProductoMenu base)

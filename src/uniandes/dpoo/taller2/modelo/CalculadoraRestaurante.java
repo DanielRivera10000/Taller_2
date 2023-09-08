@@ -15,19 +15,23 @@ public class CalculadoraRestaurante
 {
 	//private ArrayList<Combo> comboLista;
 	private ArrayList <Ingrediente> ingredienteLista;
-	 private Pedido pedidoActivo;
-	// private ProductoAjustado productoActivo;
-	private ArrayList <Producto> productoLista;
+	private Pedido pedidoActivo;
+	private ProductoAjustado productoActivo;
+	private ArrayList <ProductoMenu> productoLista;
 	private int contarPedido;
+	
+	private Map<Integer, Pedido> pedidos;
 	
 	
 	public CalculadoraRestaurante() 
 	{
 		
 		this.contarPedido = 0;
+		ProductoMenu base = new ProductoMenu (null, 0);
+		this.productoActivo = new ProductoAjustado(base);
+		this.pedidos = new HashMap<>();
+		
 	}
-	
-	
 	
 	
 	
@@ -47,22 +51,35 @@ public class CalculadoraRestaurante
 		
 	}
 
-
-	
 	
 
 	public void cerrarYGuardarPedido()
 	{
+		pedidoActivo.guardarFactura(null);
+		this.pedidos.put(pedidoActivo.getIdPedido(), pedidoActivo);
+		pedidoActivo = null;
 		
 	}
 	
 	
 	
+	
+	
+	private Combo obtenerCombo(int identificadorProductoCombo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
 	public void cargarInformacionRestaurante (String archivoIngredientes, String archivoMenu, String archivoCombos) throws IOException  
 	{
-		archivoIngredientes = "data/ingredientes.txt";
-		archivoMenu = "data/menu.txt";
-		archivoCombos = "data/combos.txt";
+		archivoIngredientes = "C:\\Users\\Usuario\\Documents\\Universidad de los Andes\\Cuarto Semestre\\DPO\\Taller_2_Hamburguesas_esqueleto\\data/ingredientes.txt";
+		archivoMenu = "C:\\Users\\Usuario\\Documents\\Universidad de los Andes\\Cuarto Semestre\\DPO\\Taller_2_Hamburguesas_esqueleto\\data/menu.txt";
+		archivoCombos = "C:\\Users\\Usuario\\Documents\\Universidad de los Andes\\Cuarto Semestre\\DPO\\Taller_2_Hamburguesas_esqueleto\\data/combos.txt";
+		
+		//C:\Users\Usuario\Documents\Universidad de los Andes\Cuarto Semestre\DPO\Taller_2_Hamburguesas_esqueleto\data
 		
 		cargarIngredientes(archivoIngredientes);
 		cargarMenu(archivoMenu);
@@ -178,7 +195,7 @@ public class CalculadoraRestaurante
 	}
 	
 	
-	public ArrayList <Producto> getMenuBase()
+	public ArrayList<ProductoMenu> getMenuBase()
 	{
 		return productoLista;
 	}
