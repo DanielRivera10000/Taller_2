@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 public class CalculadoraRestaurante 
 {
 	//private ArrayList<Combo> comboLista;
@@ -92,21 +94,77 @@ public class CalculadoraRestaurante
 			{
 				elIngrediente = new Ingrediente(nombreIngrediente, precio);
 				ingredientes.put(nombreIngrediente, elIngrediente);
-				
 			}
+			
+			linea = br.readLine();
 		}
+		br.close();
+
+		System.out.println(ingredientes); 
+	}
+	
+	
+	
+	
+	private void cargarMenu (String archivoMenu) throws FileNotFoundException, IOException
+	{
+		Map<String, ProductoMenu> menu = new HashMap<>();
 		
-		 
+		BufferedReader br = new BufferedReader(new FileReader(archivoMenu));
+		String linea = br.readLine(); 
+
+		linea = br.readLine();
+		while (linea != null)
+		{
+			String[] partes = linea.split(";");
+			String nombreProducto = partes[0];
+			int precio = Integer.parseInt(partes[1]);
+			
+			
+			ProductoMenu elMenu = menu.get(nombreProducto);
+			if (elMenu == null)
+			{
+				elMenu = new ProductoMenu (nombreProducto, precio);
+				menu.put(nombreProducto, elMenu);
+			}
+			
+			linea = br.readLine();
+		}
+		br.close();
+
+		System.out.println(menu); 
 	}
 	
-	private void cargarMenu (String archivoMenu) throws FileNotFoundException
-	{
-		 
-	}
 	
-	private void cargarCombos (String archivoCombos) throws FileNotFoundException
+	
+	
+	private void cargarCombos (String archivoCombos) throws FileNotFoundException, IOException
 	{
-		 
+		Map<String, Combo> combos = new HashMap<>();
+		
+		BufferedReader br = new BufferedReader(new FileReader(archivoCombos));
+		String linea = br.readLine(); 
+
+		linea = br.readLine();
+		while (linea != null)
+		{
+			String[] partes = linea.split(";");
+			String nombreCombo = partes[0];
+			int descuento = Integer.parseInt(partes[1]);
+			
+			
+			Combo elCombo = combos.get(nombreCombo);
+			if (elCombo == null)
+			{
+				elCombo = new Combo (nombreCombo, descuento);
+				combos.put(nombreCombo, elCombo);
+			}
+			
+			linea = br.readLine();
+		}
+		br.close();
+
+		System.out.println(combos);  
 	}
 	
 	
